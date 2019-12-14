@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="那咋爆裂啊">
 <meta property="og:description" content="一个苹果，三个属性，颜色，味道，是否是高档的。 如果认为红色且甜的是高档苹果，那么。颜色和味道是直接数据。是否高档为间接数据。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-13T16:38:03.807Z">
+<meta property="og:updated_time" content="2019-12-13T16:51:26.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据模型的直接数据与间接数据">
 <meta name="twitter:description" content="一个苹果，三个属性，颜色，味道，是否是高档的。 如果认为红色且甜的是高档苹果，那么。颜色和味道是直接数据。是否高档为间接数据。">
@@ -43,9 +43,9 @@
     <h2 class="author">云却</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>30</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>31</strong><br>文章</div></a>
       <a href="/categories"><div><strong>18</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>52</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>53</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -138,6 +138,11 @@
 <td>属性（get）</td>
 </tr>
 <tr>
+<td>是否占用内存</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
 <td>MVVM层次</td>
 <td>Model</td>
 <td>ViewModel</td>
@@ -164,17 +169,26 @@
 </tr>
 </tbody>
 </table>
-<p><strong>区分直接数据和间接数据能有效直观的对代码逻辑分层。</strong></p>
-<p><strong>直接数据通常在M层。不包含逻辑。</strong></p>
-<p><strong>间接数据在VM层。包含求解逻辑，对Model的数据修改逻辑。</strong></p>
-<p><strong>通常VM层对象包含M接口。而VM层接口继承M接口，并通过包含M接口实现。</strong></p>
-<p><strong>所以对View层来说，VM接口包含所有数据，而不关心数据来自哪里。</strong></p>
+<hr>
+<hr>
+<ul>
+<li><p><strong>直接属性和间接属性的区分是按照策划设计来的。表现为一个数据对另一组数据的依赖性。</strong></p>
+</li>
+<li><p><strong>区分直接数据和间接数据能有效直观的对代码逻辑分层。</strong></p>
+</li>
+<li><strong>直接数据通常在M层。不包含逻辑。</strong></li>
+<li><strong>间接数据在VM层。包含求解逻辑，对Model的数据修改逻辑。</strong></li>
+<li><p><strong>通常VM层对象包含M接口。而VM层接口继承M接口，并通过包含M接口实现。</strong></p>
+</li>
+<li><p><strong>所以对View层来说，VM接口包含所有数据，而不关心数据来自哪里。</strong></p>
+</li>
+</ul>
 <p>层层解耦，高内聚低耦合。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/12/14/数据模型的直接数据与间接数据/" data-id="ck44dlqka001gzkl59y340d2o" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/12/14/数据模型的直接数据与间接数据/" data-id="ck45t3tdx002ulol51b81w93x" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序/">程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -186,9 +200,9 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/09/23/Houdini学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/12/13/git的快速入门教程/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Houdini学习笔记</div>
+      <div class="article-nav-title">git的快速入门教程</div>
     </a>
   
 </nav>
@@ -237,9 +251,9 @@
     <h2 class="author">云却</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>30</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>31</strong><br>文章</div></a>
       <a href="/categories"><div><strong>18</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>52</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>53</strong><br>标签</div></a>
     </div>
 
 
