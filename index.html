@@ -38,9 +38,9 @@
     <h2 class="author">云却</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>32</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>34</strong><br>文章</div></a>
       <a href="/categories"><div><strong>18</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>54</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -65,6 +65,133 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-求解型AI设计思路" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/25/求解型AI设计思路/" class="article-date">
+  <time class="post-time" datetime="2019-12-25T00:12:49.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">25</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/25/求解型AI设计思路/">求解型AI设计思路</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/架构设计/">架构设计</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://connect.unity.com/events/ai_planner_2019" target="_blank" rel="noopener">参考链接</a></p>
+<p>整个AI中设置多个原子节点（可能是动作，或者几个动作组成的行为），或者说下层AI树。<br>每个AI树中可以含有多个原子节点。<br>AI求解器每次求解都是求一组原子节点组合来完成一个高层行为。<br>例如：AI任务目标是 获得2个金币。<br>        原子节点 走路，摘苹果，挖矿，售卖。<br>        可能的求解结果就是 走路-挖矿-售卖</p>
+<p>每个原子节点要配置各种cost为求解器提供参考。</p>
+<p>所以AI的逻辑代码是在全局的求解器中。<br>每个AI树包含：  </p>
+<pre><code>- 一堆配置的原子几点。
+- 每次求解步长。
+- 求解策略，广搜深搜等。
+- 结果的优先策略，最短节点优先，最短时间优先，性价比优先。
+- 求解失败应对策略。
+- 在中间节点执行完毕重求解策略。
+- 沉默成本策略。
+</code></pre><p>一个AI树就是一种AI。<br>AI树求解策略不同，导致AI表现不同。<br>AI求解很耗时，所以AI求解的步长就是AI的智能等级参数之一。</p>
+<p>高智能的AI，系统分配的求解步长更长，包含的搜索策略更多。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kumokyaku.github.io/2019/12/25/求解型AI设计思路/" data-id="ck4kkp89t001n4sl54xozsfmd" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏设计/">游戏设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序/">程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/行为设计/">行为设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Observer模式弱引用的一些想法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/25/Observer模式弱引用的一些想法/" class="article-date">
+  <time class="post-time" datetime="2019-12-24T23:48:27.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">25</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/25/Observer模式弱引用的一些想法/">Observer模式弱引用的一些想法</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/程序/">程序</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>观察者模式可以使用弱引用的方法实现自动注销，但是存中风险。</p>
+<p>Source -&gt;OnNext -&gt;Observer4WeakedObject-&gt;[OnNext -&gt; CheckTarget -&gt; weakreference]-&gt; WarpObserver:IOnNext -&gt;  Observer</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/12/25/Observer模式弱引用的一些想法/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kumokyaku.github.io/2019/12/25/Observer模式弱引用的一些想法/" data-id="ck4kkp897000g4sl5a4ya3fgc" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UniRx/">UniRx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步/">异步</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序/">程序</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-SourceTree-git-lfs无法识别大于10mb文件解决方法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -112,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/12/16/SourceTree-git-lfs无法识别大于10mb文件解决方法/" data-id="ck48kaojh001k0sl5zo2uwfgu" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/12/16/SourceTree-git-lfs无法识别大于10mb文件解决方法/" data-id="ck4kkp89a000l4sl5bi0ux544" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏开发/">游戏开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序/">程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
@@ -172,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/12/14/数据模型的直接数据与间接数据/" data-id="ck48kaok9002o0sl5mqd5o3g8" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/12/14/数据模型的直接数据与间接数据/" data-id="ck4kkp89z00224sl5qpo71u54" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序/">程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -238,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/12/13/git的快速入门教程/" data-id="ck48kaojo001p0sl5jak768u0" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/12/13/git的快速入门教程/" data-id="ck4kkp89l00184sl54hg909em" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏开发/">游戏开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序/">程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
@@ -321,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/09/23/Houdini学习笔记/" data-id="ck48kaoij00090sl5vwn4fsqu" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/09/23/Houdini学习笔记/" data-id="ck4kkp88y00074sl5ccn4qepy" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Houdini/">Houdini</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心得/">心得</a></li></ul>
@@ -382,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/09/04/冰川场景制作过程/" data-id="ck48kaojw001y0sl57pvpubjm" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/09/04/冰川场景制作过程/" data-id="ck4kkp89b000n4sl5xcl2njls" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/冰川/">冰川</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/场景/">场景</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美术/">美术</a></li></ul>
@@ -444,7 +571,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/07/14/UNITY生成LightmapUVs/" data-id="ck48kaojr001r0sl59o3jc7ns" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/07/14/UNITY生成LightmapUVs/" data-id="ck4kkp898000h4sl5tj3llu30" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UV/">UV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模型/">模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渲染/">渲染</a></li></ul>
@@ -555,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/07/14/如何进行人物设计/" data-id="ck48kaok000270sl52qnkwyjb" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/07/14/如何进行人物设计/" data-id="ck4kkp89o001c4sl5xrvdhzv3" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人物/">人物</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小说/">小说</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模型/">模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美术/">美术</a></li></ul>
@@ -610,153 +737,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/07/04/一些思考/" data-id="ck48kaojx00210sl5h46bboai" class="article-share-link">分享</a>
+      <a data-url="https://kumokyaku.github.io/2019/07/04/一些思考/" data-id="ck4kkp89i00114sl5s2kdri83" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人生/">人生</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/哲学/">哲学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小说/">小说</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设定/">设定</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-彩虹色与各向异性" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/04/彩虹色与各向异性/" class="article-date">
-  <time class="post-time" datetime="2019-07-04T11:45:34.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">04</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/04/彩虹色与各向异性/">彩虹色与各向异性</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/图形学/">图形学</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>云却</code> 2019/03/07 15:42:43<br><img src="/2019/07/04/彩虹色与各向异性/caihongse.jpg" alt="image"></p>
-<p>这个指的是不是各向异性  </p>
-<p><code>叶月葵</code> 2019/03/07 15:43:58<br>不是  </p>
-<p><code>叶月葵</code> 2019/03/07 15:44:00<br>是衍射  </p>
-        
-          <p class="article-more-link">
-            <a href="/2019/07/04/彩虹色与各向异性/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/07/04/彩虹色与各向异性/" data-id="ck48kaok7002l0sl5zyj7qipc" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图形学/">图形学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渲染/">渲染</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-ACGN推荐" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/26/ACGN推荐/" class="article-date">
-  <time class="post-time" datetime="2019-05-26T15:46:55.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/26/ACGN推荐/">ACGN推荐</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACGN/">ACGN</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="番剧"><a href="#番剧" class="headerlink" title="番剧"></a>番剧</h1><ol>
-<li>JOJO的奇妙冒险 星尘斗士埃及篇</li>
-<li>钢之炼金术师</li>
-<li>来自深渊</li>
-<li>斩！赤红之瞳</li>
-<li>少女终末旅行</li>
-<li>魔法使的新娘</li>
-<li>谭雅战记</li>
-<li>只有我不存在的城市</li>
-<li>动物朋友（兽娘动物园，仅限第一季！！）</li>
-<li>虫师+续章</li>
-<li>破刃之剑（有个6集版）</li>
-<li>白箱</li>
-<li>宝石之国</li>
-<li>忍者杀手（纸片人）</li>
-<li>重返17岁</li>
-<li>亚尔斯兰战记</li>
-<li>亚人</li>
-<li>漆黑的子弹</li>
-<li>最终流放</li>
-<li>四月是你的谎言</li>
-<li>希德尼娅的骑士</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/26/ACGN推荐/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kumokyaku.github.io/2019/05/26/ACGN推荐/" data-id="ck48kaoi800000sl5x9gdrd5h" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动漫/">动漫</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小说/">小说</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推荐/">推荐</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/番剧/">番剧</a></li></ul>
 
     </footer>
   </div>
@@ -811,9 +795,9 @@
     <h2 class="author">云却</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>32</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>34</strong><br>文章</div></a>
       <a href="/categories"><div><strong>18</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>54</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
     </div>
 
 
